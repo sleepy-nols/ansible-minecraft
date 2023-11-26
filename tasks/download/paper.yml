@@ -17,13 +17,13 @@
     minecraft_paper_url: "https://api.papermc.io/v2/projects/paper/versions/{{ minecraft_version }}/builds/{{ minecraft_paper_build | default(minecraft_paper_latest_build) }}/downloads/paper-{{ minecraft_version }}-{{ minecraft_paper_build | default(minecraft_paper_latest_build) }}.jar"
   when: minecraft_paper_url is not defined or minecraft_paper_url|length==0
 
-# - name: Get checksum of custom build
-#   set_fact:
-#     minecraft_paper_checksum: "{{ item.downloads.application.sha256 }}"
-#   loop: "{{ minecraft_paper_build_info.json.builds }}"
-#   loop_control:
-#     label: false
-#   when: minecraft_paper_build is defined and item.build == minecraft_paper_build | int
+- name: Get checksum of custom build
+  set_fact:
+    minecraft_paper_checksum: "{{ item.downloads.application.sha256 }}"
+  loop: "{{ minecraft_paper_build_info.json.builds }}"
+  loop_control:
+    label: false
+  when: minecraft_paper_build is defined and item.build == minecraft_paper_build | int
 
 - name: Download PaperMC server
   get_url:
