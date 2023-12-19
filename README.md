@@ -1,27 +1,31 @@
 # ansible-minecraft
 
 
-**This is a fork from the https://github.com/devops-coop/ansible-minecraft/ Project, thanks for the basement!!!**
+**This is a fork from [github.com/nolte/ansible-minecraft](https://github.com/nolte/ansible-minecraft)**
 
-
-[![molecule e2e](https://github.com/nolte/ansible-minecraft/workflows/molecule%20e2e/badge.svg)](https://github.com/nolte/ansible-minecraft/actions?query=workflow%3A%22molecule+e2e%22) [![Install from Ansible Galaxy](https://img.shields.io/badge/role-nolte.minecraft-blue.svg)](https://galaxy.ansible.com/nolte/minecraft) [![Chat on gitter.im](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/devops-coop/ansible-minecraft) [![](https://img.shields.io/github/release/nolte/ansible-minecraft.svg)](https://github.com/nolte/ansible-minecraft) [![Documentation Status](https://readthedocs.org/projects/ansible-minecraft/badge/?version=master)](https://ansible-minecraft.readthedocs.io/en/master)
-
-
-This role installs [Minecraft](https://minecraft.net/) or [Spigot](https://www.spigotmc.org/) and configures it to run under [systemd](https://wiki.freedesktop.org/www/Software/systemd/).
-
+This role installs and configures different Minecraft servers on Debian.
 
 ## Features
 
--  supports [vanilla Minecraft](https://minecraft.net) and [Spigot](https://spigotmc.org/)
--  supports Debian >9, Ubuntu 14.04, Ubuntu 16.04, Ubuntu 18.04, CentOS 7 & 8, Fedora 29 - 34
+**Currently supported servers:**
+- Vanilla
+- Paper
+- Spigot
+
+Other features:
 -  safely stops the server using [stop](http://minecraft.gamepedia.com/Commands#stop) when running under **systemd**
--  uses [Docker](https://www.docker.com/) and [Molecule](https://molecule.readthedocs.io/) to run integration tests
 -  manages user ACLs
 -  manages Bukkit/Spigot Plugins
 -  manages ``server.properties``
 -  hooks: include arbitrary tasks at specific stages during execution
 
-### Out of Role Scope
+## Active development
+This role is being actively developed.
+**Goals:**
+- Paper support
+- Forge support
+
+## Out of Role Scope
 
 - install a *Java Runtime*, this must be done, before you use this Role, you can use [nolte/ansible-role-msopenjdk](https://github.com/nolte/ansible-role-msopenjdk) for example.
 - executing backups and recovery
@@ -31,14 +35,10 @@ This role installs [Minecraft](https://minecraft.net/) or [Spigot](https://www.s
 
 **All of this is needet but not a part of this role!**, _you will find examples at [nolte/minecraft-infrastructure](https://github.com/nolte/minecraft-infrastructure)._
 
-## Usage
-
- By default this role will be install a Vanilla Minecraft Server.
-
-### Install
+## Install
 
 ```
-   ansible-galaxy install nolte.minecraft
+   ansible-galaxy install nols.minecraft
 ```
 
 or add this to your ``requirements.yml``
@@ -49,12 +49,12 @@ or add this to your ``requirements.yml``
 
 and execute ``ansible-galaxy install -r requirements.yml``
 
-### Use
+## Use
 
 ```
   - hosts: minecraft
     roles:
-       - { role: nolte.minecraft, minecraft_whitelist: ["jeb_", "dinnerbone"]}
+       - nols.minecraft
 ```
 
 ## Requirements
@@ -66,14 +66,7 @@ and execute ``ansible-galaxy install -r requirements.yml``
 
 ## Contributing
 
-The best way to contribute is to use this role to deploy your own Minecraft server! We really appreciate bug reports from the wild.
-
-If you'd like to help with the project itself, here are some other ways you can contribute:
-
--  Add support for additional servers like [Cuberite](https://cuberite.org/).
--  Write integration tests for Minecraft- or Spigot-specific configuration.
--  Share useful hooks.
--  Fixing Typos ...
+Bug reports and contributions are welcome :) 
 
 ## License
 
