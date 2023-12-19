@@ -1,4 +1,4 @@
 ansible==4.4.0
-molecule[docker]==3.3.4
+molecule[docker]==6.0.3
 pytest
 pytest-testinfra
