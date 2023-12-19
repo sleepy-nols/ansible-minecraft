@@ -1,4 +1,4 @@
-Sphinx==4.3.2
+Sphinx==7.2.6
 sphinxcontrib-plantuml==0.24
 sphinxcontrib-ansibleautodoc==0.0.5
 sphinx_rtd_theme==1.0.0
