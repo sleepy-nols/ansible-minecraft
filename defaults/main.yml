@@ -19,7 +19,6 @@ minecraft_console_fifo_mode: '0666'
 minecraft_server_properties: {}
 minecraft_eula_accept: false
 minecraft_spigot_url: https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
-minecraft_paper_url: https://papermc.io/api/v2/projects/paper/versions/1.18.2/builds/290/downloads/paper-1.18.2-290.jar
 minecraft_server_java_ops:
 minecraft_java: /usr/bin/java
 #minecraft_java_external_managed: true

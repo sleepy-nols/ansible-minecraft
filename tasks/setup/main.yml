@@ -31,3 +31,8 @@
   set_fact:
     minecraft_jar: spigot.jar
   when: minecraft_server == 'spigot'
+
+- name: set executable name (Paper)
+  set_fact:
+    minecraft_jar: paper.jar
+  when: minecraft_server == 'paper'
